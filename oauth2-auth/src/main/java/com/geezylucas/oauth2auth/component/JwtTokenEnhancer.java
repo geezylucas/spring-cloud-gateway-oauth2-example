@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Mejorador de contenido JWT
+ */
 @Component
 public class JwtTokenEnhancer implements TokenEnhancer {
 

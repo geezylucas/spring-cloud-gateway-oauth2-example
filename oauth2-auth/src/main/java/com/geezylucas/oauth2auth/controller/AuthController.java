@@ -15,6 +15,9 @@ import java.security.Principal;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * RestController de token para obtención personalizada de Oauth2
+ */
 @RestController
 @RequestMapping("/oauth")
 @RequiredArgsConstructor

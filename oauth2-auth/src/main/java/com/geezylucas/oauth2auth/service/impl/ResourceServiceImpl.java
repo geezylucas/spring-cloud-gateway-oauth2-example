@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Implementación de gestión de relaciones de concordancia de recursos y funciones
+ */
 @Service
 @RequiredArgsConstructor
 public class ResourceServiceImpl {

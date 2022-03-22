@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Implementación de gestión de usuarios
+ */
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {

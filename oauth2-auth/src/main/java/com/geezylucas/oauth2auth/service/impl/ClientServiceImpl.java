@@ -18,6 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Implementación de gestión de clientes
+ */
 @Service
 @RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
@@ -49,6 +52,7 @@ public class ClientServiceImpl implements ClientService {
         if (CollUtil.isEmpty(findClientList)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, MessageConstant.NOT_FOUND_CLIENT);
         }
+
         return new ClientPrincipal(findClientList.get(0));
     }
 }

@@ -15,6 +15,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Información de cliente
+ */
 @Data
 @AllArgsConstructor
 public class ClientPrincipal implements ClientDetails {

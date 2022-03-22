@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Manejar excepciones lanzadas por Oauth2 globalmente
+ */
 @Controller
 public class Oauth2ExceptionHandler {
 

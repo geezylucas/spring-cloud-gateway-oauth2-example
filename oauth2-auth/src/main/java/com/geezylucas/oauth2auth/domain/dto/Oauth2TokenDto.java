@@ -4,6 +4,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * Oauth2 obtiene Token y devuelve encapsulado de información
+ */
 @Data
 @EqualsAndHashCode
 @Builder

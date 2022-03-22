@@ -1,5 +1,8 @@
 package com.geezylucas.oauth2auth.constant;
 
+/**
+ * Constantes para mensajes
+ */
 public final class MessageConstant {
 
     private MessageConstant() {

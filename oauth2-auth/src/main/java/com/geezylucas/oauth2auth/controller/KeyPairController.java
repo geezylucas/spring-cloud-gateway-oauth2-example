@@ -10,6 +10,9 @@ import java.security.KeyPair;
 import java.security.interfaces.RSAPublicKey;
 import java.util.Map;
 
+/**
+ * RestController para la clave pública RSA
+ */
 @RestController
 @RequiredArgsConstructor
 public class KeyPairController {

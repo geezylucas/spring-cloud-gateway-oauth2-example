@@ -1,5 +1,8 @@
 package com.geezylucas.oauth2auth.api;
 
+/**
+ * Se enumeran algunos códigos de operación API comunes
+ */
 public enum ResultCode implements IErrorCode {
     SUCCESS(200, "Operación exitosa"),
     FAILED(500, "Operación fallida"),

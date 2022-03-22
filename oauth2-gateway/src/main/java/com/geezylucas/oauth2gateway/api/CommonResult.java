@@ -2,6 +2,11 @@ package com.geezylucas.oauth2gateway.api;
 
 import lombok.Data;
 
+/**
+ * Objeto de devolución genérico
+ *
+ * @param <T>
+ */
 @Data
 public class CommonResult<T> {
 

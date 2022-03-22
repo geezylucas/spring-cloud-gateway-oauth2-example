@@ -22,6 +22,9 @@ import java.security.KeyPair;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Configuración del servidor de autenticación
+ */
 @Configuration
 @AllArgsConstructor
 @EnableAuthorizationServer
