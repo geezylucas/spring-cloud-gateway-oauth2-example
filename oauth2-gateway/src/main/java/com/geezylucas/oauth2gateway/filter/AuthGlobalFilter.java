@@ -13,6 +13,9 @@ import reactor.core.publisher.Mono;
 
 import java.text.ParseException;
 
+/**
+ * Un filtro global que convierte el JWT del usuario que ha iniciado sesión en información del usuario
+ */
 @Slf4j
 @Component
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
@@ -28,7 +31,7 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             String realToken = token.replace("Bearer ", "");
             JWSObject jwsObject = JWSObject.parse(realToken);
             String user = jwsObject.getPayload().toString();
-            log.info("AuthGlobalFilter.filter() user:{}", user);
+            log.info("AuthGlobalFilter.filter() user: {}", user);
             ServerHttpRequest request = exchange.getRequest().mutate().header("user", user).build();
             exchange = exchange.mutate().request(request).build();
         } catch (ParseException ex) {

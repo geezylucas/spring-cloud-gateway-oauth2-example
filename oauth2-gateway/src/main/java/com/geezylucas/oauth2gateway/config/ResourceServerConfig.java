@@ -24,6 +24,9 @@ import org.springframework.security.oauth2.server.resource.authentication.Reacti
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import reactor.core.publisher.Mono;
 
+/**
+ * Configuración del servidor de recursos
+ */
 @Configuration
 @EnableWebFluxSecurity
 @AllArgsConstructor
@@ -42,19 +45,22 @@ public class ResourceServerConfig {
         http.oauth2ResourceServer().authenticationEntryPoint(restAuthenticationEntryPoint);
 
         http.addFilterBefore(ignoreUrlsRemoveJwtFilter, SecurityWebFiltersOrder.AUTHENTICATION);
+
         http.authorizeExchange()
                 .pathMatchers(ArrayUtil.toArray(ignoreUrlsConfig.getUrls(), String.class)).permitAll()
                 .anyExchange().access(authorizationManager)
-                .and().exceptionHandling()
+                .and()
+                .exceptionHandling()
                 .accessDeniedHandler(restfulAccessDeniedHandler)
                 .authenticationEntryPoint(restAuthenticationEntryPoint)
-                .and().csrf().disable();
+                .and()
+                .csrf().disable();
 
         return http.build();
     }
 
     @Bean
-    public Converter<Jwt, ? extends Mono<? extends AbstractAuthenticationToken>> jwtAuthenticationConverter() {
+    public Converter<Jwt, Mono<AbstractAuthenticationToken>> jwtAuthenticationConverter() {
         JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
         jwtGrantedAuthoritiesConverter.setAuthorityPrefix(AuthConstant.AUTHORITY_PREFIX);
         jwtGrantedAuthoritiesConverter.setAuthoritiesClaimName(AuthConstant.AUTHORITY_CLAIM_NAME);

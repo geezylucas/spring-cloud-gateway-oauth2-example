@@ -1,5 +1,8 @@
 package com.geezylucas.oauth2gateway.constant;
 
+/**
+ * Constantes Auth
+ */
 public final class AuthConstant {
 
     private AuthConstant() {

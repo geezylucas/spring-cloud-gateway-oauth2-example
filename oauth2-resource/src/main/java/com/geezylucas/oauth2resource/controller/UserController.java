@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * RestController para obtener información de usuario de inicio de sesión
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController {

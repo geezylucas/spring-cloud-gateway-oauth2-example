@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * Configuración de lista blanca de puerta de enlace
+ */
 @Data
 @EqualsAndHashCode
 @Component

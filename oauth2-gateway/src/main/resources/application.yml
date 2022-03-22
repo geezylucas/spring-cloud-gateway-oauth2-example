@@ -16,28 +16,10 @@ spring:
             - Path=/resource/**
           filters:
             - StripPrefix=1
-        - id: oauth2-auth-route
-          uri: lb://oauth2-auth
-          predicates:
-            - Path=/auth/**
-          filters:
-            - StripPrefix=1
-        - id: oauth2-auth-login
-          uri: lb://oauth2-auth
-          predicates:
-            - Path=/login
-          filters:
-            - PreserveHostHeader
         - id: oauth2-auth-token
           uri: lb://oauth2-auth
           predicates:
             - Path=/oauth/token
-          filters:
-            - PreserveHostHeader
-        - id: oauth2-auth-authorize
-          uri: lb://oauth2-auth
-          predicates:
-            - Path=/oauth/authorize
           filters:
             - PreserveHostHeader
       discovery:
@@ -59,8 +41,6 @@ secure:
     urls:
       - "/actuator/**"
       - "/oauth/token"
-      - "/oauth/authorize"
-      - "/login"
 
 eureka:
   client:

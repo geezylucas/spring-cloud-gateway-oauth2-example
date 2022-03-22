@@ -14,6 +14,9 @@ import reactor.core.publisher.Mono;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * El encabezado de la solicitud JWT debe eliminarse al acceder a la ruta incluida en la lista blanca
+ */
 @Component
 @RequiredArgsConstructor
 public class IgnoreUrlsRemoveJwtFilter implements WebFilter {
