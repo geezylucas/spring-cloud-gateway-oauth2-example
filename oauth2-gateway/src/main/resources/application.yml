@@ -1,0 +1,70 @@
+server:
+  port: 9201
+spring:
+  profiles:
+    active: dev
+  application:
+    name: oauth2-gateway
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      routes:
+        - id: oauth2-resource-route
+          uri: lb://oauth2-resource
+          predicates:
+            - Path=/resource/**
+          filters:
+            - StripPrefix=1
+        - id: oauth2-auth-route
+          uri: lb://oauth2-auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: oauth2-auth-login
+          uri: lb://oauth2-auth
+          predicates:
+            - Path=/login
+          filters:
+            - PreserveHostHeader
+        - id: oauth2-auth-token
+          uri: lb://oauth2-auth
+          predicates:
+            - Path=/oauth/token
+          filters:
+            - PreserveHostHeader
+        - id: oauth2-auth-authorize
+          uri: lb://oauth2-auth
+          predicates:
+            - Path=/oauth/authorize
+          filters:
+            - PreserveHostHeader
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9401/rsa/publicKey
+  redis:
+    database: 0
+    port: 6379
+    host: localhost
+    password:
+secure:
+  ignore:
+    urls:
+      - "/actuator/**"
+      - "/oauth/token"
+      - "/oauth/authorize"
+      - "/login"
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: true
